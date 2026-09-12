@@ -19,8 +19,7 @@ class TestBurger:
         ingredient = Ingredient(INGREDIENT_TYPE_SAUCE, 'Соус №3', 777)
         burger = Burger()
         burger.add_ingredient(ingredient)
-        ingredients = burger.ingredients
-        assert ingredients[0] == ingredient and len(ingredients) == 1
+        assert burger.ingredients == [ingredient]
 
     def test_remove_ingredient_from_burger(self):
 
@@ -38,8 +37,7 @@ class TestBurger:
         burger.add_ingredient(first_ingredient)
         burger.add_ingredient(second_ingredient)
         burger.move_ingredient(0, 1)
-        ingredients = burger.ingredients
-        assert len(ingredients) == 2 and ingredients[0] == second_ingredient and ingredients[1] == first_ingredient
+        assert burger.ingredients == [second_ingredient, first_ingredient]
 
     @pytest.mark.parametrize('ingredients', [
         [Ingredient(INGREDIENT_TYPE_SAUCE, 'Соус №1', 35)],
